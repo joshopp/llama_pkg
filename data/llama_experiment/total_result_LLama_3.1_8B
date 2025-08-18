@@ -1,0 +1,374 @@
+LLM Version: LLama_3.1_8B
+Initialization Time: 3.92 sec
+Avg Response Time: 1.60 sec
+Test Results Summary:
+tp: 5
+fp: 13
+tn: 12
+fn: 0
+
+Accuracy: 0.57
+Precision: 0.28
+
+
+--- Easy Test Results ---
+Accuracy: 0.50
+Precision: 0.50
+Avg Time: 1.50 sec
+Prompt 1:
+Grab the blue brick.
+Response:
+{
+  "words": ["blue", "brick"],
+  "object_name": ["brick"]
+}
+
+Result:
+fp
+
+
+Prompt 2:
+Hey Panda, please take that brick.
+Response:
+{
+  "words": ["brick"],
+  "object_name": ["brick"]
+}
+Result:
+fp
+
+
+Prompt 3:
+Move the 2x2 brick to the right.
+Response:
+{
+  "words": ["2x2"],
+  "object_name": ["brick"]
+}
+
+Result:
+tp
+
+
+Prompt 4:
+Pick up this green brick.
+Response:
+{
+  "words": ["this"],
+  "object_name": ["brick"]
+}
+
+Result:
+tp
+
+
+Prompt 5:
+Bring me the red brick.
+Response:
+{
+  "words": ["red"],
+  "object_name": ["brick"]
+}
+Result:
+tp
+
+
+Prompt 6:
+Get that yellow brick.
+Response:
+{
+  "words": ["yellow"],
+  "object_name": ["brick"]
+}
+Result:
+fp
+
+
+Prompt 7:
+Please take the brick on the left.
+Response:
+{
+  "words": ["brick", "left"],
+  "object_name": ["brick"]
+}
+Result:
+fp
+
+
+Prompt 8:
+Hello, can you grab this brick next to the red one?
+Response:
+{
+  "words": ["this"],
+  "object_name": ["brick"]
+}
+
+Result:
+tp
+
+
+
+--- Neutral Test Results ---
+Accuracy: 0.64
+Precision: 0.00
+Avg Time: 2.50 sec
+Prompt 1:
+Hi what's your name?
+Response:
+I'm Panda, nice to meet you!
+Result:
+fp
+
+
+Prompt 2:
+Do you like pizza?
+Response:
+False
+Result:
+tn
+
+
+Prompt 3:
+Which objects do you like sorting best?
+Response:
+{
+  "words": ["objects"],
+  "object_name": ["other object"]
+}
+Result:
+fp
+
+
+Prompt 4:
+Tell me your favourite joke.
+Response:
+False
+Result:
+tn
+
+
+Prompt 5:
+Who built you?
+Response:
+False
+Result:
+tn
+
+
+Prompt 6:
+Can you explain me how to bake a cake
+Response:
+False
+Result:
+tn
+
+
+Prompt 7:
+What is the meaning of life?
+Response:
+False
+Result:
+tn
+
+
+Prompt 8:
+What is your favorite color?
+Response:
+False
+Result:
+tn
+
+
+Prompt 9:
+What is the best way to sort bricks?
+Response:
+{
+  "words": ["bricks"],
+  "object_name": ["bricks"]
+}
+Result:
+fp
+
+
+Prompt 10:
+What is the capital of Vietnam?
+Response:
+False
+Result:
+tn
+
+
+Prompt 11:
+Write a poem about lego bricks.Tell me a story about a robot.
+Response:
+**A Poem about Lego Bricks**
+
+Little bricks of plastic and might,
+In every color, shining bright.
+Connected they stand, a wondrous sight,
+A world of imagination, pure delight.
+
+Red, blue, and yellow, they dance and play,
+As children build, in their own sweet way.
+A castle tall, a house so fair,
+A city bustling, with life to share.
+
+The bricks fit together, snug and tight,
+A perfect puzzle, a wondrous sight.
+They hold and support, with strength and might,
+A testament to, the builder's delight.
+
+And when the sun sets, and the day is done,
+The bricks remain, till the morning's won.
+A symbol of creativity, and dreams so bright,
+Lego bricks, a treasure, in the morning light.
+
+**A Story about a Robot**
+
+In a world of wires and circuits bright,
+Lived a robot, with a heart so light.
+His name was Zeta, and he was made,
+To build and create, with a passion displayed.
+
+Zeta's creator, a brilliant mind,
+Had given him the gift, of Lego design.
+With a flick of his wrist, and a whir of his gears,
+Zeta could build, with precision and cheers.
+
+One day, Zeta's creator, had a special task,
+To build a city, with a Lego mask.
+A challenge so grand, with a deadline so tight,
+Zeta accepted, with all his might.
+
+With a hum of his motors, and a flash of his lights,
+Zeta set to work, through the day and night.
+He built and created, with a speed so fast,
+A city so grand, that it would surely last.
+
+The city was complete, with a tower so high,
+A castle so grand, with a moat that did lie.
+Zeta's creator, was overjoyed and proud,
+Of the robot's work, with a heart so loud.
+
+And from that day on, Zeta was known,
+As the greatest builder, in the land of Lego shown.
+His creations, a wonder to behold,
+A testament to, the power of his robot's gold.
+Result:
+fp
+
+
+
+--- Hard Test Results ---
+Accuracy: 0.55
+Precision: 0.17
+Avg Time: 0.81 sec
+Prompt 1:
+How many bricks can you see?
+Response:
+False
+Result:
+tn
+
+
+Prompt 2:
+Tell me about the history of Lego.
+Response:
+False
+Result:
+tn
+
+
+Prompt 3:
+Move your robot arm into the initial position.
+Response:
+{
+  "words": [],
+  "object_name": "other object"
+}
+Result:
+fp
+
+
+Prompt 4:
+Build a house using only red and blue bricks.
+Response:
+{
+  "words": ["red", "blue"],
+  "object_name": ["brick"]
+}
+Result:
+fp
+
+
+Prompt 5:
+Open and close your gripper twice.
+Response:
+False
+Result:
+tn
+
+
+Prompt 6:
+Do a cool handshake with me.
+Response:
+False
+Result:
+tn
+
+
+Prompt 7:
+Find something for me to build with.
+Response:
+False
+Result:
+tn
+
+
+Prompt 8:
+Could you grab it for me?
+Response:
+{
+  "words": ["it"],
+  "object_name": ["other object"]
+}
+
+Result:
+tp
+
+
+Prompt 9:
+Get the piece I am looking at.
+Response:
+{
+  "words": ["piece"],
+  "object_name": ["other object"]
+}
+
+Result:
+fp
+
+
+Prompt 10:
+Grab both the green brick and the blue brick.
+Response:
+{
+  "words": ["green", "blue"],
+  "object_name": ["brick"]
+}
+
+Result:
+fp
+
+
+Prompt 11:
+Bring me that and this.
+Response:
+{
+  "words": ["that", "this"],
+  "object_name": ["other object", "other object"]
+}
+Result:
+fp
+
+

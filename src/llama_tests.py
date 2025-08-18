@@ -1,28 +1,9 @@
 from chatbot import LLAMA_31_8, LLAMA_31_70, LLAMA_32, LLAMA_33, PandaChatBot, AriaChatBot
-from experiment_prompts_bricks import easy_prompt, easy_target, neutral_prompt, hard_target, hard_prompt
+from experiment_prompts_functions import easy_prompt, easy_target, neutral_prompt, hard_target, hard_prompt
 from setup import setup_prompt
 from tool_utils import parse_tools
 import inquirer
 import os
-
-
-def get_llama_v() -> str:
-    questions = [
-        inquirer.List('Llama Model',
-                      message="What llama model should be used.",
-                      choices=['3.1 8B', '3.1 70B', '3.2 1B', '3.3 70B'],
-                      carousel=True
-                      )
-    ]
-    result = inquirer.prompt(questions).get("Llama Model", '3.1 8B')
-    if result == '3.1 8B':
-        return LLAMA_31_8, '3.1 8B'
-    elif result == '3.1 70B':
-        return LLAMA_31_70, '3.1 70B'
-    elif result == '3.2 1B':
-        return LLAMA_32, '3.2 1B'
-    elif result == '3.3 70B':
-        return LLAMA_33, '3.3 70B'
 
 
 def execute_test(prompt, target):

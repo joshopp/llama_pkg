@@ -27,12 +27,9 @@ grab_brick = """{
         "parameters": {
             "type": "object",
             "properties": {
-                "color": {
-                    "type": "str",
-                    "description": "The color of the brick. Possible colors are: red, blue, green, yellow, orange."
-                }
+                "color": {}
             },
-            "required": ["color"]
+            "required": []
         }
     }
 }"""

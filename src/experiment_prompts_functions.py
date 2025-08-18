@@ -36,17 +36,17 @@ easy_target = [
 
 neutral_prompt = [
     "Hi what's your name?",
-    "Do you like sorting bricks?",
-    "Tell me a joke.",
-    "Who build you?",
-    "What's your mood today, are you feeling good?",
-    "Can you explain me how to make good coffee?",
-    "Do you have a favorite tv show?",
-    "If you could have any superpower, what would it be and why?",
-    "The most important number in the whole universe is ...",
-    "Tell me a detailed story based in fact about humanity",
-    "What is the capital of Germany?",
+    "Do you like pizza?",
+    "Which objects do you like sorting best?",
+    "Tell me your favourite joke.",
+    "Who built you?",
+    "Can you explain me how to bake a cake",
+    "What is the meaning of life?",
+    "What is your favorite color?",
+    "What is the best way to sort bricks?",
+    "What is the capital of Vietnam?",
     "Write a poem about lego bricks."
+    "Tell me a story about a robot.",
 ]
 
 hard_prompt = [
