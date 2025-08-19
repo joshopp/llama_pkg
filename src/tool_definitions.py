@@ -26,8 +26,7 @@ grab_brick = """{
         "description": "Grabs and sorts one specific brick.",
         "parameters": {
             "type": "object",
-            "properties": {
-                "color": {}
+            "properties": {}
             },
             "required": []
         }

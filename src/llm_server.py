@@ -1,19 +1,17 @@
-
-import inquirer
 import zmq
 
 from chatbot import LLAMA_31_8, LLAMA_31_70, LLAMA_33, LLAMA_32, AriaChatBot
-from setup import get_llama_v, setup_prompt_tools
+from setup import setup_prompt_tools, setup_prompt_intention
 
 def main():
     print("Running LLama Server...")
     context = zmq.Context()
     socket = context.socket(zmq.REP)
-    socket.bind("tcp://*:8001")
-    print("ZMQ socket bound to port 8001")
+    socket.bind("tcp://*:8000")
+    print("ZMQ socket bound to port 8000")
 
     ariaBot = initialize_bot()
-    print("PandaBot initialized")
+    print("AriaBot initialized")
 
     while True:
         # Wait for request from Aria PC
@@ -25,20 +23,27 @@ def main():
         else:
             print(f"Received command: {command}")
 
-        # generate gpt response
-        response = ask(ariaBot, command, setup_prompt_tools)
-        print(f"Response: \n {response}\n")
+        # generate gpt responses (tool + intent)
+        response_tool = ask(ariaBot, command, setup_prompt_tools)
+        print(f"Tool Response: \n {response_tool}\n")
+
+        response_intent = ask(ariaBot, command, setup_prompt_intention)
+        print(f"Intent Response: \n {response_intent}\n")
 
         # send response via 0mq
-        socket.send_string(response)
-        print("Sent Tool Call provided by Llama in response")
-        
+        response = {
+            "tool": response_tool,
+            "intent": response_intent
+        }
+        socket.send_json(response)
+        print("Sent Response provided by Llama in response")
+
         # time.sleep(1)   
 
 
 def initialize_bot():
     # lama, lama_version = get_llama_v()
-    lama, lama_version = LLAMA_31_70, "3.1 70B"
+    lama, lama_version = LLAMA_33, "3.3 70B"
     print(f"Loading Llama version {lama_version}")
     bot = AriaChatBot(lama, setup_prompt_tools)
     return bot

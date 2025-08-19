@@ -6,13 +6,13 @@ import time
 from chatbot import LLAMA_31_8, LLAMA_31_70, LLAMA_32, LLAMA_33, AriaChatBot
 from experiment_prompts_JSON import easy_prompt, easy_target, neutral_prompt, hard_target, hard_prompt
 from setup import setup_prompt_intention
-from tool_utils import compare_json, extract_python_code
+from tool_utils import extract_python_code
 
 # List of models
 LLMs = [
-    (LLAMA_31_8, "LLama_3.1_8B"),
-    (LLAMA_31_70, "LLama_3.1_70B"),
-    (LLAMA_32, "LLama_3.2_1B"),
+    #(LLAMA_31_8, "LLama_3.1_8B"),
+    #(LLAMA_31_70, "LLama_3.1_70B"),
+    #(LLAMA_32, "LLama_3.2_1B"),
     (LLAMA_33, "LLama_3.3_70B"),
     ("OpenAI", "GPT-4o"),
 ]
