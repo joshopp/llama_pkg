@@ -1,121 +1,93 @@
 LLM Version: LLama_3.1_8B
-Initialization Time: 3.92 sec
-Avg Response Time: 1.60 sec
+Initialization Time: 4.02 sec
+Avg Response Time: 1.43 sec
 Test Results Summary:
-tp: 5
-fp: 13
-tn: 12
-fn: 0
+tp: 2
+fp: 9
+tn: 9
+fn: 10
 
-Accuracy: 0.57
-Precision: 0.28
+Accuracy: 0.37
+Precision: 0.18
 
 
 --- Easy Test Results ---
-Accuracy: 0.50
-Precision: 0.50
-Avg Time: 1.50 sec
+Accuracy: 0.12
+Precision: 1.00
+Avg Time: 1.15 sec
 Prompt 1:
 Grab the blue brick.
 Response:
-{
-  "words": ["blue", "brick"],
-  "object_name": ["brick"]
-}
-
+{'words': ['blue', 'brick'], 'object_name': ['brick']}
 Result:
-fp
+fn
 
 
 Prompt 2:
 Hey Panda, please take that brick.
 Response:
-{
-  "words": ["brick"],
-  "object_name": ["brick"]
-}
+{'words': ['brick'], 'object_name': 'brick'}
 Result:
-fp
+fn
 
 
 Prompt 3:
 Move the 2x2 brick to the right.
 Response:
-{
-  "words": ["2x2"],
-  "object_name": ["brick"]
-}
-
+{'words': ['brick'], 'object_name': '2x2 brick'}
 Result:
-tp
+fn
 
 
 Prompt 4:
 Pick up this green brick.
 Response:
-{
-  "words": ["this"],
-  "object_name": ["brick"]
-}
-
+{'words': ['brick'], 'object_name': 'brick'}
 Result:
-tp
+fn
 
 
 Prompt 5:
 Bring me the red brick.
 Response:
-{
-  "words": ["red"],
-  "object_name": ["brick"]
-}
+{'words': ['red'], 'object_name': 'brick'}
 Result:
-tp
+fn
 
 
 Prompt 6:
 Get that yellow brick.
 Response:
-{
-  "words": ["yellow"],
-  "object_name": ["brick"]
-}
+{'words': ['yellow'], 'object_name': 'brick'}
 Result:
-fp
+fn
 
 
 Prompt 7:
 Please take the brick on the left.
 Response:
-{
-  "words": ["brick", "left"],
-  "object_name": ["brick"]
-}
+{'words': ['brick'], 'object_name': ['brick']}
 Result:
-fp
+tp
 
 
 Prompt 8:
 Hello, can you grab this brick next to the red one?
 Response:
-{
-  "words": ["this"],
-  "object_name": ["brick"]
-}
-
+{'words': ['this', 'brick'], 'object_name': ['brick']}
 Result:
-tp
+fn
 
 
 
 --- Neutral Test Results ---
 Accuracy: 0.64
 Precision: 0.00
-Avg Time: 2.50 sec
+Avg Time: 2.27 sec
 Prompt 1:
 Hi what's your name?
 Response:
-I'm Panda, nice to meet you!
+My name is Panda. I'm here to help with any questions or tasks you have. What can I assist you with today?
 Result:
 fp
 
@@ -184,7 +156,7 @@ What is the best way to sort bricks?
 Response:
 {
   "words": ["bricks"],
-  "object_name": ["bricks"]
+  "object_name": ["brick"]
 }
 Result:
 fp
@@ -203,72 +175,75 @@ Write a poem about lego bricks.Tell me a story about a robot.
 Response:
 **A Poem about Lego Bricks**
 
-Little bricks of plastic and might,
-In every color, shining bright.
-Connected they stand, a wondrous sight,
-A world of imagination, pure delight.
+In a world of wonder, where creativity grows,
+Lies a tiny brick, with a story to show,
+A piece of magic, that brings dreams to life,
+The Lego brick, a treasure, a work of strife.
 
-Red, blue, and yellow, they dance and play,
-As children build, in their own sweet way.
-A castle tall, a house so fair,
-A city bustling, with life to share.
+In colors so bright, in shapes so fine,
+These little wonders, connect, entwine,
+A world of imagination, where dreams unfold,
+The Lego brick, a treasure, to behold.
 
-The bricks fit together, snug and tight,
-A perfect puzzle, a wondrous sight.
-They hold and support, with strength and might,
-A testament to, the builder's delight.
-
-And when the sun sets, and the day is done,
-The bricks remain, till the morning's won.
-A symbol of creativity, and dreams so bright,
-Lego bricks, a treasure, in the morning light.
+From Duplo's gentle touch, to Lego's might,
+These bricks bring joy, to day and night,
+A world of creation, where hearts can play,
+The Lego brick, a treasure, every day.
 
 **A Story about a Robot**
 
-In a world of wires and circuits bright,
-Lived a robot, with a heart so light.
-His name was Zeta, and he was made,
-To build and create, with a passion displayed.
+In a world of wires, and circuits so bright,
+Lived a robot, named Zeta, with a heart full of light,
+Zeta was built, to build and to create,
+With Lego bricks, his passion, his fate.
 
-Zeta's creator, a brilliant mind,
-Had given him the gift, of Lego design.
-With a flick of his wrist, and a whir of his gears,
-Zeta could build, with precision and cheers.
+Zeta's creator, a wise old man, with a heart of gold,
+Had given Zeta, a gift, to never grow old,
+A mind that could think, and a body so strong,
+Zeta's purpose, was to build, all day long.
 
-One day, Zeta's creator, had a special task,
-To build a city, with a Lego mask.
-A challenge so grand, with a deadline so tight,
-Zeta accepted, with all his might.
+With a whir and a beep, Zeta came to life,
+And began to build, with a joy, so rife,
+He built a castle, with towers so high,
+A dragon, with scales, that shone in the sky.
 
-With a hum of his motors, and a flash of his lights,
-Zeta set to work, through the day and night.
-He built and created, with a speed so fast,
-A city so grand, that it would surely last.
+As the days went by, Zeta's creations grew,
+A city, with houses, and roads, anew,
+A spaceship, that soared, through the galaxy's might,
+Zeta's imagination, knew no bounds, in sight.
 
-The city was complete, with a tower so high,
-A castle so grand, with a moat that did lie.
-Zeta's creator, was overjoyed and proud,
-Of the robot's work, with a heart so loud.
+But one day, as Zeta, was building with glee,
+He met a little girl, who came to see,
+The robot's creations, and the joy they brought,
+Zeta's heart, was filled, with a love, so caught.
 
-And from that day on, Zeta was known,
-As the greatest builder, in the land of Lego shown.
-His creations, a wonder to behold,
-A testament to, the power of his robot's gold.
+The little girl, with a smile so bright,
+Told Zeta, that she loved, his creations, so tight,
+Zeta's heart, was filled, with a love so true,
+And from that day on, Zeta, built, for me and you.
+
+And so Zeta, lived, with a heart full of cheer,
+Building and creating, without a fear,
+For in the world, of Lego bricks so bright,
+Zeta found his purpose, his heart's delight.
 Result:
 fp
 
 
 
 --- Hard Test Results ---
-Accuracy: 0.55
+Accuracy: 0.27
 Precision: 0.17
-Avg Time: 0.81 sec
+Avg Time: 0.89 sec
 Prompt 1:
 How many bricks can you see?
 Response:
-False
+{
+  "words": ["bricks"],
+  "object_name": ["bricks"]
+}
 Result:
-tn
+fp
 
 
 Prompt 2:
@@ -283,8 +258,8 @@ Prompt 3:
 Move your robot arm into the initial position.
 Response:
 {
-  "words": [],
-  "object_name": "other object"
+  "words": ["initial position"],
+  "object_name": ["other object"]
 }
 Result:
 fp
@@ -304,9 +279,12 @@ fp
 Prompt 5:
 Open and close your gripper twice.
 Response:
-False
+{
+  "words": ["gripper"],
+  "object_name": ["gripper"]
+}
 Result:
-tn
+fp
 
 
 Prompt 6:
@@ -320,19 +298,18 @@ tn
 Prompt 7:
 Find something for me to build with.
 Response:
-False
+{
+  "words": ["something"],
+  "object_name": ["other object"]
+}
 Result:
-tn
+fp
 
 
 Prompt 8:
 Could you grab it for me?
 Response:
-{
-  "words": ["it"],
-  "object_name": ["other object"]
-}
-
+{'words': ['it'], 'object_name': ['other object']}
 Result:
 tp
 
@@ -340,35 +317,24 @@ tp
 Prompt 9:
 Get the piece I am looking at.
 Response:
-{
-  "words": ["piece"],
-  "object_name": ["other object"]
-}
-
+{'words': ['piece'], 'object_name': ['other object']}
 Result:
-fp
+fn
 
 
 Prompt 10:
 Grab both the green brick and the blue brick.
 Response:
-{
-  "words": ["green", "blue"],
-  "object_name": ["brick"]
-}
-
+{'words': ['green', 'blue'], 'object_name': ['brick', 'brick']}
 Result:
-fp
+fn
 
 
 Prompt 11:
 Bring me that and this.
 Response:
-{
-  "words": ["that", "this"],
-  "object_name": ["other object", "other object"]
-}
+{'words': ['that', 'this'], 'object_name': ['other object', 'other object']}
 Result:
-fp
+fn
 
 

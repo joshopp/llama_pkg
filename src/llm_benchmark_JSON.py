@@ -10,9 +10,9 @@ from tool_utils import extract_python_code
 
 # List of models
 LLMs = [
-    #(LLAMA_31_8, "LLama_3.1_8B"),
-    #(LLAMA_31_70, "LLama_3.1_70B"),
-    #(LLAMA_32, "LLama_3.2_1B"),
+    (LLAMA_31_8, "LLama_3.1_8B"),
+    (LLAMA_31_70, "LLama_3.1_70B"),
+    (LLAMA_32, "LLama_3.2_1B"),
     (LLAMA_33, "LLama_3.3_70B"),
     ("OpenAI", "GPT-4o"),
 ]
@@ -41,27 +41,35 @@ def execute_test(bot, prompt, target, llama=True):
         response, duration = ask(bot, prompt)
     else:
         response, duration = ask_openai(bot, prompt)
-    response = extract_python_code(response)
-
-    if not response and not target:
-        return "tn", response, duration
-    elif not response and target:
+    
+    # print(f"response: {response}")
+    # print(type(response))
+    # print(f"target: {target}")
+    # print(type(target))
+    # print(response == target)
+    if response == "False":
+        if not target:
+            return "tn", response, duration
         return "fn", response, duration
-    elif response and not target:
-        return "fp", response, duration
-    elif response and target:
+    else:
+        if not target:    
+            return "fp", response, duration
         try:
-            response_json = json.loads(response)
-            target_json = json.loads(target)
-            response_str = json.dumps(response_json, ensure_ascii=False, separators=(',', ':'))
-            target_str = json.dumps(target_json, ensure_ascii=False, separators=(',', ':'))
-            if response_str == target_str:
+            response = json.loads(response)
+            print(type(response))
+            if response == target:
+                print("a")
                 return "tp", response, duration
-            else:
-                return "fp", response, duration
-        except Exception as e:
-            print(f"Error parsing JSON: {e}")
+            print("b")
             return "fn", response, duration
+        except Exception as e:
+            print("c")
+            print(f"Error: {e}")
+            return "fn", response, duration
+
+
+        
+            
 
 
 def test(prompts, targets, bot, llama = True):
@@ -107,12 +115,14 @@ def initialize_openai():
 
 
 def ask_openai(client, prompt):
+    messages = []
+    messages.append({"role": "system", "content": setup_prompt_intention})
+    messages.append({"role": "user", "content": prompt})
+
     start_time = time.time()
     response = client.chat.completions.create(
         model="gpt-4o",
-        messages=[
-            {"role": "user", "content": prompt}
-        ],
+        messages=messages,
     )
     elapsed = time.time() - start_time
     return response.choices[0].message.content, elapsed

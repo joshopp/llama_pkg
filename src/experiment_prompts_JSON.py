@@ -10,14 +10,14 @@ easy_prompt = [
 ]
 
 easy_target = [
-    '''{"words": ["blue"], "object_name": ["brick"]}''',
-    '''{"words": ["that"], "object_name": ["brick"]}''',
-    '''{"words": ["2x2"], "object_name": ["brick"]}''',
-    '''{"words": ["this"], "object_name": ["brick"]}''',
-    '''{"words": ["red"], "object_name": ["brick"]}''',
-    '''{"words": ["that"], "object_name": ["brick"]}''',
-    '''{"words": ["brick"], "object_name": ["brick"]}''',
-    '''{"words": ["this"], "object_name": ["brick"]}'''
+    {"words": ["blue"], "object_name": ["brick"]},
+    {"words": ["that"], "object_name": ["brick"]},
+    {"words": ["2x2"], "object_name": ["brick"]},
+    {"words": ["green"], "object_name": ["brick"]},
+    {"words": ["red"], "object_name": ["brick"]},
+    {"words": ["yellow"], "object_name": ["brick"]},
+    {"words": ["brick"], "object_name": ["brick"]},
+    {"words": ["this"], "object_name": ["brick"]}
 ]
 
 
@@ -53,9 +53,9 @@ hard_prompt = [
 
 hard_target = [
     False, False, False, False, False, False, False,
-    '''{"words": ["it"], "object_name": ["other object"]}''',
-    '''{"words": ["looking"], "object_name": ["piece"]}''',
-    '''{"words": ["piece"], "object_name": ["piece"]}''',
-    '''{"words": ["green", "blue"], "object_name": ["brick", "brick"]}''',
-    '''{"words": ["that", "this"], "object_name": ["other object", "other object"]}'''
+    {"words": ["it"], "object_name": ["other object"]},
+    {"words": ["looking"], "object_name": ["piece"]},
+    {"words": ["piece"], "object_name": ["piece"]},
+    {"words": ["green", "blue"], "object_name": ["brick", "brick"]},
+    {"words": ["that", "this"], "object_name": ["other object", "other object"]}
 ]

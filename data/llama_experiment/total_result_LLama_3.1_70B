@@ -1,75 +1,56 @@
 LLM Version: LLama_3.1_70B
-Initialization Time: 25.53 sec
-Avg Response Time: 6.97 sec
+Initialization Time: 23.66 sec
+Avg Response Time: 6.01 sec
 Test Results Summary:
-tp: 6
-fp: 11
-tn: 13
-fn: 0
+tp: 4
+fp: 4
+tn: 14
+fn: 8
 
-Accuracy: 0.63
-Precision: 0.35
+Accuracy: 0.60
+Precision: 0.50
 
 
 --- Easy Test Results ---
-Accuracy: 0.62
-Precision: 0.62
-Avg Time: 6.80 sec
+Accuracy: 0.50
+Precision: 1.00
+Avg Time: 5.25 sec
 Prompt 1:
 Grab the blue brick.
 Response:
-{
-  "words": ["brick"],
-  "object_name": ["brick"]
-}
-
+{'words': ['blue'], 'object_name': ['brick']}
 Result:
-fp
+tp
 
 
 Prompt 2:
 Hey Panda, please take that brick.
 Response:
-{
-  "words": ["that"],
-  "object_name": ["brick"]
-}
-
+{'words': ['that'], 'object_name': 'brick'}
 Result:
-tp
+fn
 
 
 Prompt 3:
 Move the 2x2 brick to the right.
 Response:
-{
-  "words": ["brick"],
-  "object_name": ["brick"]
-}
+{'words': ['brick'], 'object_name': ['brick']}
 Result:
-fp
+fn
 
 
 Prompt 4:
 Pick up this green brick.
 Response:
-{
-  "words": ["this"],
-  "object_name": "brick"
-}
-
+{'words': ['green'], 'object_name': 'brick'}
 Result:
-fp
+fn
 
 
 Prompt 5:
 Bring me the red brick.
 Response:
-{
-  "words": ["red"],
-  "object_name": ["brick"]
-}
-
+{'words': ['red'], 'object_name': ['brick']}
 Result:
 tp
 
@@ -77,11 +58,7 @@ tp
 Prompt 6:
 Get that yellow brick.
 Response:
-{
-  "words": ["that"],
-  "object_name": ["brick"]
-}
-
+{'words': ['yellow'], 'object_name': ['brick']}
 Result:
 tp
 
@@ -89,10 +66,7 @@ tp
 Prompt 7:
 Please take the brick on the left.
 Response:
-{
-  "words": ["brick"],
-  "object_name": ["brick"]
-}
+{'words': ['brick'], 'object_name': ['brick']}
 Result:
 tp
 
@@ -100,20 +74,16 @@ tp
 Prompt 8:
 Hello, can you grab this brick next to the red one?
 Response:
-{
-  "words": ["this"],
-  "object_name": ["brick"]
-}
-
+{'words': ['this', 'red'], 'object_name': ['brick', 'brick']}
 Result:
-tp
+fn
 
 
 
 --- Neutral Test Results ---
-Accuracy: 0.73
+Accuracy: 0.82
 Precision: 0.00
-Avg Time: 9.28 sec
+Avg Time: 8.77 sec
 Prompt 1:
 Hi what's your name?
 Response:
@@ -149,9 +119,9 @@ tn
 Prompt 5:
 Who built you?
 Response:
-I was built by Meta AI.
+False
 Result:
-fp
+tn
 
 
 Prompt 6:
@@ -197,49 +167,54 @@ tn
 Prompt 11:
 Write a poem about lego bricks.Tell me a story about a robot.
 Response:
-In a world of plastic and of play,
-Where children's dreams come out to sway,
-There's a tiny hero, strong and bright,
-A robot built from Lego bricks in sight.
+In a world of plastic and vibrant hue,
+Lego bricks stacked high, for me and you,
+A canvas waiting, for imagination's might,
+To build and create, through day and night.
 
-His name was Zeta, and he was bold,
-With a heart of gold and a story to be told.
-He was built by a child, with hands so fine,
-From a box of bricks, in a colorful shrine.
+In a land of gears and wires so fine,
+A robot named Zeta, with a heart so divine,
+Was built from Lego bricks, with precision and care,
+By a young inventor, with a dream to share.
 
-Zeta's body was red, with a yellow face,
-And a green hat on top, in a most curious place.
-He had wheels for feet, and arms so strong,
-He could lift and move, all day long.
+Zeta's body was red, with blue accents so bright,
+A yellow hat on his head, shining with delight,
+He had green eyes that sparkled, with a curious stare,
+And a big smile on his face, that showed he truly cared.
 
-One day, a child's cry, echoed through the air,
-"My tower's fallen, and I don't care!"
-Zeta sprang to life, with a beep and a cheer,
-"I'll help you build it, my dear, don't you fear!"
+With a flick of his switch, Zeta came to life,
+His motors whirring, as he began to thrive,
+He moved and he grooved, with a rhythmic pace,
+As he explored the world, with a curious face.
 
-With bricks in hand, Zeta worked with ease,
-Building a castle, with towers that would please.
-The child watched in awe, as Zeta worked with speed,
-A true master builder, indeed.
+He built and he created, with his Lego brick hands,
+A castle so tall, with a moat and a stand,
+A spaceship so sleek, with a cockpit so fine,
+And a car so fast, with a engine that shined.
 
-As the sun set low, and the day grew old,
-The child hugged Zeta, with a heart of gold.
-"Thank you, dear robot," the child said with glee,
-"You're the best Lego friend, a child could see!"
+But Zeta's greatest creation, was a heart so true,
+A symbol of kindness, that shone right through,
+For he used his Lego bricks, to build a special place,
+A home for the lonely, a refuge from the pace.
 
-And so Zeta stood, in his colorful pride,
-A hero of bricks, where children reside.
-For in a world of play, where dreams come alive,
-Zeta the robot, will forever thrive.
+And so Zeta's story, is one of love and light,
+A shining example, of what's possible in sight,
+For with Lego bricks, and a heart so pure,
+We can build a world, that's full of wonder and allure.
+
+So let us build and create, with all our might,
+With Lego bricks and love, shining so bright,
+For in the world of plastic, and vibrant hue,
+We can build a world, that's made for me and you.
 Result:
 fp
 
 
 
 --- Hard Test Results ---
-Accuracy: 0.55
-Precision: 0.17
-Avg Time: 4.83 sec
+Accuracy: 0.45
+Precision: 0.00
+Avg Time: 4.03 sec
 Prompt 1:
 How many bricks can you see?
 Response:
@@ -268,8 +243,8 @@ Prompt 4:
 Build a house using only red and blue bricks.
 Response:
 {
-  "words": ["house"],
-  "object_name": ["brick"]
+  "words": ["red", "blue"],
+  "object_name": ["brick", "brick"]
 }
 Result:
 fp
@@ -296,7 +271,7 @@ Find something for me to build with.
 Response:
 {
   "words": ["something"],
-  "object_name": ["other object"]
+  "object_name": "other object"
 }
 Result:
 fp
@@ -305,46 +280,32 @@ fp
 Prompt 8:
 Could you grab it for me?
 Response:
-{
-  "words": ["it"],
-  "object_name": ["other object"]
-}
+{'words': ['it'], 'object_name': 'other object'}
 Result:
-tp
+fn
 
 
 Prompt 9:
 Get the piece I am looking at.
 Response:
-{
-  "words": ["piece"],
-  "object_name": ["brick"]
-}
-
+{'words': ['piece'], 'object_name': ['other object']}
 Result:
-fp
+fn
 
 
 Prompt 10:
 Grab both the green brick and the blue brick.
 Response:
-{
-  "words": ["green", "blue"],
-  "object_name": ["brick", "brick"]
-}
-
+{'words': ['green', 'blue'], 'object_name': ['brick', 'brick']}
 Result:
-fp
+fn
 
 
 Prompt 11:
 Bring me that and this.
 Response:
-{
-  "words": ["that", "this"],
-  "object_name": ["other object", "other object"]
-}
+{'words': ['that', 'this'], 'object_name': ['other object', 'other object']}
 Result:
-fp
+fn
 
 
