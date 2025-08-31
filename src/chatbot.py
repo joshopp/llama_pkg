@@ -4,6 +4,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, TextIteratorStreamer, BitsAndBytesConfig
 from typing import Literal, List
 
+# shared local space on Avalon1 server - edit for own usage
 LLAMA_31_8 = "/data/shared_llm_checkpoints/meta-llama/Llama-3.1-8B-Instruct"
 LLAMA_31_70 = "/data/shared_llm_checkpoints/meta-llama/Llama-3.1-70B-Instruct"
 LLAMA_32 = "/data/shared_llm_checkpoints/meta-llama/Llama-3.2-1B-Instruct"
@@ -44,37 +45,35 @@ class AbstractChatBot(ABC):
     def clear_history(self, setup_prompt):
         self.conversation = []
         self.setup(setup_prompt)
-
 # ---------------------------------------------------------
 
 
-
+# Chatbot for interaction between Llama and user
 class AriaChatBot(AbstractChatBot):
-    def __init__(
-            self,
-            model_path: str,
-            quantization: Literal["16bit", "8bit", "4bit"] = "16bit",
-            setup_prompt: str = "You are a helpful assistant",
-    ):
+    def __init__(self,
+                 model_path: str,
+                 quantization: Literal["16bit", "8bit", "4bit"] = "16bit", # change for alternative quantization
+                 setup_prompt: str = "You are a helpful assistant"):
+        
         super().__init__(setup_prompt=setup_prompt)
-        # Quantitation
         quantization_config = None
         if quantization == "8bit":
             quantization_config = BitsAndBytesConfig(load_in_8bit=True)
         elif quantization == "4bit":
             quantization_config = BitsAndBytesConfig(load_in_4bit=True)
-        # Model
+
         self.model = AutoModelForCausalLM.from_pretrained(
             model_path,
             device_map="auto",
             torch_dtype=torch.bfloat16,
             quantization_config=quantization_config,
         )
-        # Tokenizer
+
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
+    # method to stream response from prompt "query"
     def get_response_streamer(self, query, max_tokens=1028, temperature=0.6, top_p=0.9):
         self.conversation.append(query)
         # Create tokenized prompt
@@ -86,8 +85,8 @@ class AriaChatBot(AbstractChatBot):
             return_tensors="pt",
             return_dict=True
         )
-        # prompt ist ein dict, daher evtl. prompt = {k: v.to(self.device) for k, v in prompt.items()}?
         prompt.to(self.device)
+
         # Create text streamer
         streamer = TextIteratorStreamer(
             self.tokenizer,
@@ -107,6 +106,7 @@ class AriaChatBot(AbstractChatBot):
             eos_token_id=self.tokenizer.eos_token_id,
             attention_mask=prompt["attention_mask"]
         )
+        # Start thread streaming model output
         thread = Thread(target=self.model.generate, kwargs=generation_kwargs)
         thread.start()
         return streamer

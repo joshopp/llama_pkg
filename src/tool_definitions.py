@@ -18,7 +18,6 @@ sort_bricks_definition = """{
     }
 }"""
 
-
 grab_brick = """{
     "type": "function",
     "function": {

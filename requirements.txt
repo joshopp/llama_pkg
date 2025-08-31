@@ -1,0 +1,5 @@
+inquirer==3.4.1
+openai==1.102.0
+pyzmq==27.0.2
+torch==2.4.1
+transformers==4.46.3
