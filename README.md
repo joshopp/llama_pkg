@@ -1,23 +1,16 @@
-# LLM Brick Manipulation Component
-
-A Python library for handling Large Language Model (LLM) operations in a multimodal brick manipulation system using gaze and speech input. This component manages tool calling and intention alignment via external server communication through ZeroMQ.
+# LLM Component
+A Python library for handling Large Language Model (LLM) operations in a multimodal brick manipulation system using gaze and speech input. This component manages tool calling and intention alignment by leveraging Llama 3.3 70B. The component runs on an external server and communicates via ZeroMQ.
 
 ## Overview
-
 This library is one of three components in a complete multimodal manipulation system developed for a Bachelor's thesis. It specifically handles:
-
 - LLM-based tool calling functionality
 - LLM-based intention alignment processing  
 - Communication via ZeroMQ
 
-## Features
-
-- **LLM Tool Calling**: Intelligent tool selection and parameter extraction from natural language
-- **Intention Alignment**: Aligns user intentions in spoken commands to infer a reffered object 
-- **ZeroMQ Communication**: Efficient server-client messaging via TCP
-- **Multiple Model Support**: Configurable LLM backends with custom model integration
-- **Benchmarking Suite**: Performance evaluation tools with customizable test scenarios
-- **Modular Design**: Designed to work seamlessly with companion gaze and speech components
+## Requirements
+- Python 3.8+
+- Additional dependencies listed in `requirements.txt`
+- Llama 3.3 70B Instruct (downloadable [HERE](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
 
 ## Installation
 
@@ -31,16 +24,6 @@ cd llama_pkg
 ```bash
 pip install -r requirements.txt
 ```
-
-3. Install the package:
-```bash
-pip install -e .
-```
-
-## Requirements
-
-- Python 3.8+
-- Additional dependencies listed in `requirements.txt`
 
 ## Quick Start
 
@@ -57,16 +40,6 @@ python3 llm_server.py
 ```
 Choose your desired models from the interactive menu. The server will handle LLM calls and communicate via ZeroMQ.
 
-
-## Architecture
-
-This component operates as part of a three-part system:
-
-1. **Multimodal data component**: Streams and processes data from the Meta Aria glasses
-2. **Robot Component**: Handles robot control
-3. **LLM Component (This Package)**: Manages language understanding and tool calling
-
-The components communicate through a distributed architecture using ZeroMQ for efficient inter-process communication.
 
 ## Configuration
 
@@ -107,11 +80,15 @@ Run benchmarking with the `llm_benchmark_*.py` scripts:
 Add your personal API key in `llm_utils.py` → `initialize_openai()` function
 
 
-## Related Components
+## Architecture
 
-This library is designed to work with:
-- Aria component (https://github.com/joshopp/aria_pkg)
-- Robot component (https://github.com/joshopp/robot_pkg)
+This component operates as part of a three-part system:
+
+1. **[Multimodal data streaming component](https://github.com/joshopp/aria_pkg)**: Streams and processes data from the Meta Aria glasses
+2. **[Robot Component](https://github.com/joshopp/robot_pkg)**: Handles robot control
+3. **LLM Component (this Package)**: Manages language understanding and tool calling
+
+The components communicate through a distributed architecture using ZeroMQ for efficient inter-process communication.
 
 
 ## License
@@ -125,4 +102,4 @@ This work was developed as part of a Bachelor's thesis on multimodal manipulatio
 ## Contact
 
 **Author**: joshopp  
-**Project Link**: [https://github.com/joshopp/[llama_pkg]](https://github.com/joshopp/[llama_pkg])
+**Project Link**: [https://github.com/joshopp/llama_pkg](https://github.com/joshopp/llama_pkg)
