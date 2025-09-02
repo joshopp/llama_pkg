@@ -1,4 +1,4 @@
-# LLM Component
+# LLM Component - llama_pkg
 A Python library for handling Large Language Model (LLM) operations in a multimodal brick manipulation system using gaze and speech input. This component manages tool calling and intention alignment by leveraging Llama 3.3 70B. The component runs on an external server and communicates via ZeroMQ.
 
 ## Overview
