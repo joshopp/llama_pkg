@@ -10,7 +10,7 @@ This library is one of three components in a complete multimodal manipulation sy
 ## Requirements
 - Python 3.8+
 - Additional dependencies listed in `requirements.txt`
-- Llama 3.3 70B Instruct (downloadable [HERE](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
+- Llama 3.3 70B Instruct (downloadable [HERE](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct))
 
 ## Installation
 
@@ -86,7 +86,7 @@ This component operates as part of a three-part system:
 
 1. **[Multimodal data streaming component](https://github.com/joshopp/aria_pkg)**: Streams and processes data from the Meta Aria glasses
 2. **[Robot Component](https://github.com/joshopp/robot_pkg)**: Handles robot control
-3. **LLM Component (this Package)**: Manages language understanding and tool calling
+3. **LLM Component (this package)**: Manages language understanding and tool calling
 
 The components communicate through a distributed architecture using ZeroMQ for efficient inter-process communication.
 
