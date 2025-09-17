@@ -14,7 +14,6 @@ LLAMA_33 = "/data/shared_llm_checkpoints/meta-llama/Llama-3.3-70B-Instruct"
 
 class AbstractChatBot(ABC):
     def __init__(self, setup_prompt: str = "You are a helpful assistant", tools: List = None):
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.tools = tools
         self.conversation = []
         self.setup(setup_prompt)
@@ -85,7 +84,8 @@ class AriaChatBot(AbstractChatBot):
             return_tensors="pt",
             return_dict=True
         )
-        prompt.to(self.device)
+        prompt = {k: v.to(self.model.device) for k, v in prompt.items()}
+
 
         # Create text streamer
         streamer = TextIteratorStreamer(
